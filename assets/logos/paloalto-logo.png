@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404 - Palo Alto Networks</title>
+    <!-- Latest compiled and minified CSS -->
+
+      <!-- <link rel="manifest" href="/var/favicons/manifest.json"> -->
+    <link href="/var/css/critical_deffered.css" rel="stylesheet" type="text/css" id="mainNavCritical">
+    <link rel="preload" href="/var/fonts/tthoves/TTHoves-Bold_optimized.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/var/fonts/tthoves/TTHoves-DemiBold_optimized.woff2" as="font" type="font/woff2" crossorigin>
+
+    <style>
+        .btn-black:hover,.btn-primary-outline:hover,.btn-primary:hover,.btn-white:hover{background-color:#fb7652;border-color:#fb7652}
+        .btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show>.btn-primary.dropdown-toggle{background-color:#f94414;border-color:#f94414;color:#141414}
+        .panClean .prismaNav2021Component .prisma-2021-nav-main .nav-left .mega-dropdown-menu .col-tiles .tile .btn.btn-dark:hover{background-color:transparent!important;border-color:transparent!important}
+        .panClean .prismaNav2021Component .prisma-2021-nav-main .btn.btn-primary.prisma-btn:hover{background-color:#0fd6ff!important;border-color:#0fd6ff!important}
+        .panClean .prismaNav2021Component .prisma-2021-nav-main .nav-right>li.cta .btn.prisma-btn:focus{box-shadow:0 0 0 3px #00c0e8!important}
+        .main-404-content{padding:5.5rem 0 3.5rem 0;border-bottom:1px solid #d8d8d8}
+        .cleanDynamicFooter{margin-top:0}
+        .main-404-content p{color:#727272;font-family:TT Hoves,Arial,"Helvetica Neue",Helvetica,sans-serif;font-size:1rem;line-height:150%}
+        .main-404-content h1{font-family:TT Hoves,Arial,"Helvetica Neue",Helvetica,sans-serif;font-size:3rem;line-height:120%;font-style:italic;font-weight:600}
+        .main-404-content hr{margin-top:22px;margin-bottom:22px;border:0;border-top:1px solid #f1f1f1}
+        @media(max-width:767px){
+            .cleanDynamicFooter{overflow:unset}
+            .cleanDynamicFooter .dropdown .dropdown-menu{width:315px;top:-15px!important;right:0!important;transform:translateY(-100%)!important;left:auto!important}
+        }
+        @media(min-width:768px){
+            .main-404-content h1{font-size:calc(2rem + (72 - 32) *((100vw - 768px) /(1920 - 768)))}
+            .main-404-content p{font-size:1.25rem;line-height:160%}
+        }
+
+    </style>
+     <script src="https://www.paloaltonetworks.com/var/js/jquery-3.6.1.min.js"></script>   
+    <script src="//assets.adobedtm.com/9273d4aedcd2/0d76ae0322d7/launch-425c423d843b.min.js" async></script>
+    <script type="text/javascript">
+        var webData = {};
+        webData.events = [];
+        webData.pageName = 'en_US:404';
+        webData.channel = '404';
+        webData.language = 'en_US';
+        webData.sectionPath = '404';
+        webData.resourceAssetID = '7c0f9ece9e159790f7786e0439285ded';
+    </script>
+</head>
+
+<body class="dynamicAllComponents">
+        <div class="panClean pan-template-dynamicAllComponents">
+            <div class="nav2021Component light  defaultRedesigned defaultMenu" id="PAN_2021_NAV_ASYNC" data-type="default" style="display: block;">  
+
+                <!--for inital load default struture-->
+                <div class="pan-2021-nav" data-type-of-nav="defaultRedesigned" aria-label="whole" role="navigation">
+                    <button class="btn nav-open" aria-label="open mobile navigation"></button>
+                    <a class="mobile-header-logo" href="/" aria-label="palo alto networks" nav-track="true" nav-track-breadcrumb="nav2:mobile:home"></a>
+                    <button class="btn mobile-search" aria-label="search"></button>
+                    <nav class="pan-2021-nav-toolbar" aria-label="desktop">
+                        <div class="container-fluid">
+                            <ul class="toolbar-nav toolbar-left" role="list">
+                                <li role="none">
+                                    <div class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="listitem" data-page-track="true" data-page-track-value="nav:desktop:languagedropdown">EN</a>
+                                    </div>
+                                </li>
+                                <li class="search" role="none">
+                                    <a href="/search" nav-track="true" role="listitem" nav-track-breadcrumb="nav2:Search" aria-label="search"> <img width="24" height="24" src="/var/images/search-black.svg" nolozad="true" alt="magnifying glass search icon"> </a>
+                                </li>
+                            </ul>
+
+                            <ul class="toolbar-nav toolbar-right" role="list" aria-label="toolbar-right">
+                                <li role="listitem">
+                                    <a href="/company/contact-sales" nav-track="true" nav-track-breadcrumb="Nav2:Contact Us" class="">
+                                      Contact Us</a>
+                                  </li>
+                                <li role="listitem">
+                                    <a href="/resources" nav-track="true" nav-track-breadcrumb="Nav2:What's New" class="">
+                                      What's New</a>
+                                  </li>
+                                <li role="listitem">
+                                    <a href="https://support.paloaltonetworks.com/SupportAccount/MyAccount" target="_blank" nav-track="true" nav-track-breadcrumb="Nav2:Get Support" class="" rel="noopener">
+                                      Get Support</a>
+                                  </li>
+                                <li role="listitem">
+                                    <a href="https://start.paloaltonetworks.com/contact-unit42.html" target="_blank" nav-track="true" nav-track-breadcrumb="Nav2:Under Attack?" class="under-attack" rel="noopener">
+                                      Under Attack?</a>
+                                  </li>
+                                </ul>
+                        </div>
+                    </nav>
+                
+                    <nav class="pan-2021-nav-main" aria-label="main">
+                        <div class="mobile-header"><button class="btn nav-close" nav-track="true" nav-track-breadcrumb="defaultNav:mobile:close nav" aria-label="close mobile navigation"><img width="24" height="24" data-src="/etc/clientlibs/clean/imgs/x-black.svg" alt="black x icon for closing mobile navigation" class="lozad "></button><a href="/" class="nav-logo" nav-track="true" nav-track-breadcrumb="defaultNav:mobile:logo" aria-label="paloaltonetworks"><img width="120" height="23" src="/etc/clientlibs/clean/imgs/pan-logo-dark.svg" nolozad="true" alt="Palo Alto Networks logo"></a><button class="btn mobile-search" nav-track="true" nav-track-breadcrumb="defaultNav:mobile:search" aria-label="search"><img width="28" height="28" src="/etc/clientlibs/clean/imgs/search-black.svg" nolozad="true" alt="magnifying glass search icon"></button></div>
+                        <div class="container-fluid">
+                           <ul class="nav-left" role="menubar">
+                              <li class="logo link" role="menuitem"><a href="/" nav-track="true" nav-track-breadcrumb="defaultNav:logo" aria-label="Palo Alto Networks"></a></li>
+                              <li class=" " role="menuitem"><a href="#" id="nav_products" aria-haspopup="true" aria-expanded="false" nav-track="true" nav-track-breadcrumb="defaultNav:Products">Products</a></li>
+                              <li class=" " role="menuitem"><a href="#" id="nav_solutions" aria-haspopup="true" aria-expanded="false" nav-track="true" nav-track-breadcrumb="defaultNav:Solutions">Solutions</a></li>
+                              <li class=" " role="menuitem"><a href="#" id="nav_services" aria-haspopup="true" aria-expanded="false" nav-track="true" nav-track-breadcrumb="defaultNav:Services">Services</a></li>
+                              <li class=" " role="menuitem"><a href="#" id="nav_partners" aria-haspopup="true" aria-expanded="false" nav-track="true" nav-track-breadcrumb="defaultNav:Partners">Partners</a></li>
+                              <li class=" " role="menuitem"><a href="#" id="nav_company" aria-haspopup="true" aria-expanded="false" nav-track="true" nav-track-breadcrumb="defaultNav:Company">Company</a></li>
+                              <li class=" " role="menuitem"><a href="#" id="nav_more" aria-haspopup="true" aria-expanded="false" nav-track="true" nav-track-breadcrumb="defaultNav:More">More</a></li>
+                           </ul>
+                           <div class="nav-mobile-toolbar">
+                            <ul class="mobile-toolbar nav-left" role="list">
+                                <li role="none"> <a href="#" role="listitem" data-page-track="true" data-page-track-value="_jcr_content:cleanheader.fullrenderer: parbase:">EN</a>
+                                    <div class="mega-dropdown-menu">
+                                        <div class="mobile-inner-header">
+                                            <button class="btn btn-nav-back"> <img width="20" height="20" src="/var/images/arrow-right-black.svg" alt="">
+                                            </button> <span class="title">Language</span>
+                                        </div>
+                                        <div class="col col-list">
+                                            <div class="content">
+                                                <ul class="list-unstyled">
+                                                    <li><a href="#" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:USA (ENGLISH)" role="menuitem">USA (ENGLISH)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.com.au" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:AUSTRALIA (ENGLISH)" role="menuitem">AUSTRALIA (ENGLISH)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.com.br" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:BRAZIL (PORTUGUÉS)" role="menuitem">BRAZIL (PORTUGUÉS)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.ca" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:CANADA (ENGLISH)" role="menuitem">CANADA (ENGLISH)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.cn" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:CHINA (简体中文)" role="menuitem">CHINA (简体中文)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.fr" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:FRANCE (FRANÇAIS)" role="menuitem">FRANCE (FRANÇAIS)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.de" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:GERMANY (DEUTSCH)" role="menuitem">GERMANY (DEUTSCH)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.in" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:INDIA (ENGLISH)" role="menuitem">INDIA (ENGLISH)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.it" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:ITALY (ITALIANO)" role="menuitem">ITALY (ITALIANO)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.jp" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:JAPAN (日本語)" role="menuitem">JAPAN (日本語)</a></li>
+                                                    <li><a href="http://www.paloaltonetworks.co.kr" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:KOREA (한국어)" role="menuitem">KOREA (한국어)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.lat" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:LATIN AMERICA (ESPAÑOL)" role="menuitem">LATIN AMERICA (ESPAÑOL)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.com.mx" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:MEXICO (ESPAÑOL)" role="menuitem">MEXICO (ESPAÑOL)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.sg" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:SINGAPORE (ENGLISH)" role="menuitem">SINGAPORE (ENGLISH)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.es" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:SPAIN (ESPAÑOL)" role="menuitem">SPAIN (ESPAÑOL)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.tw" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:TAIWAN (繁體中文)" role="menuitem">TAIWAN (繁體中文)</a></li>
+                                                    <li><a href="https://www.paloaltonetworks.co.uk" nav-track="true" nav-track-breadcrumb="nav2:mobile:language:UK (ENGLISH)" role="menuitem">UK (ENGLISH)</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="mobile-toolbar nav-left" role="list">
+                                <li role="listitem" class="link">
+                                    <a href="/get-started" nav-track="true" nav-track-breadcrumb="nav2:Get Started">Get Started</a>
+                                </li>
+                                <li role="listitem" class="link">
+                                    <a href="/company/contact-sales" nav-track="true" nav-track-breadcrumb="nav2:Contact Us">Contact
+                                        Us</a>
+                                </li>
+                                <li role="listitem" class="link">
+                                    <a href="/resources" nav-track="true" nav-track-breadcrumb="nav2:Resources">Resources</a>
+                                </li>
+                                <li role="listitem" class="link">
+                                    <a href="https://support.paloaltonetworks.com/SupportAccount/MyAccount" target="_blank" nav-track="true" nav-track-breadcrumb="nav2:mobile:Get support" rel="noopener">Get
+                                        support</a>
+                                </li>
+                                <li role="listitem" class="link">
+                                    <a href="https://start.paloaltonetworks.com/contact-unit42.html" target="_blank" class="under-attack" nav-track="true" nav-track-breadcrumb="nav2:Under Attack?" rel="noopener">Under Attack?</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="nav-right" role="list">
+                            <li role="listitem">
+                              <a href="/get-started" class="btn btn-primary" nav-track="true" nav-track-breadcrumb="nav2:Demos and Trials">Demos and Trials</a>
+                            </li>
+                          </ul>
+                        </div>
+                     </nav>
+                     <div class="dropdown-overlay"></div>
+                </div>
+                   
+            </div>
+            <!--header-->
+
+            <!--prisma Nav-->
+            <div class="productNav2021Component light pan-relative default prismaMenu" id="PAN_2021_NAV_ASYNC" data-type="prisma" style="display: none;"> 
+       
+            </div>
+            <!--prisma Nav-->
+ 
+            <!--sase nav-->
+            <div class="productNav2021Component light pan-relative default saseMenu" id="PAN_2021_NAV_ASYNC" data-type="sase" style="display: none;">
+               
+               
+            </div>
+           
+            <!--cortex nav-->
+            <div class="productNav2021Component light pan-relative default cortexMenu" id="PAN_2021_NAV_ASYNC"data-type="cortex" style="display: none;">
+                   
+            </div>
+
+              <!--cortex nav-->
+              <div class="productNav2021Component light pan-relative default cortexCloudMenu" id="PAN_2021_NAV_ASYNC"data-type="cloudcortex" style="display: none;">
+                   
+              </div>
+
+            <!--Unit42 nav-->
+            <div class="productNav2021Component pan-relative light defaultRedesigned unit42Menu" id="PAN_2021_NAV_ASYNC" data-type="unit" style="display: none;">
+            
+            </div>
+            <!--unit42 Nav-->
+
+                <!--NGFW-->
+              <div class="productNav2021Component light  pan-relative defaultRedesigned ngfwMenu" id="PAN_2021_NAV_ASYNC"data-type="ngfw" style="display:none">
+                  
+              </div>
+              <!--NGFW closed-->
+            
+        </div>
+        <main class="main-404-content"> 
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <h1>We're sorry</h1>
+                        <p class="lead">That page could not be found [Error 404]</p>
+                        <hr>
+                        <p class="lead">However, you may find it helpful to take a look at our&nbsp;<a href="/resources"
+                                class="resourcelink btn btn-link light">Resource
+                                Center</a>.
+                            <br> Alternatively, use the top navigation on this page to find what you're looking for or enter a
+                            search term in the search box above.
+                        </p>
+                    </div>
+                </div>
+            </div>
+           
+        </main>
+
+        <!--footer-->
+        <div class="cleanDynamicFooter mainFooterComp baseComponent parbase">
+            <!-- custom spacing -->
+    
+            <a class="page-anchor" name="footer"></a>
+         
+            <section class="mega-footer accordion" id="footer_accordion">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-16 col-xxl-8">
+                            <div class="heading-col collapsed pr-4 pr-md-0" data-toggle="collapse" data-target="#collapse_col_0">
+                                <h2 class="nav-headline mb-0">Products and Services</h2>
+                            </div>
+                            <div id="collapse_col_0" class="columns collapse d-md-flex flex-nowrap" data-parent="#footer_accordion">
+                                <ul class="list-unstyled nav-list mb-0">
+                                    <li class="sub-title nav-subheader"><a href="/network-security" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-0:network security platform" rel="noopener">
+                                                                Network Security Platform
+                                                            </a></li>
+                                    <li class="sub-title nav-subheader"><a href="/network-security/security-subscriptions" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-1:cloud delivered security services" rel="noopener">
+                                                                CLOUD DELIVERED SECURITY SERVICES
+                                                            </a></li>
+                                    <li class="link"><a href="/network-security/advanced-threat-prevention" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-2:advanced threat prevention" rel="noopener">
+                                                                Advanced Threat Prevention
+                                                            </a></li>
+                                    <li class="link"><a href="/network-security/advanced-wildfire" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="network-security:mainfootercomp:col-0:link-3:advanced wildfire" rel="noopener"> 
+                                                                Advanced WildFire
+                                                            </a></li>
+                                    <li class="link"><a href="/network-security/advanced-dns-security" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-3:dns security" rel="noopener">
+                                                                DNS Security
+                                                            </a></li>
+                                    <li class="link"><a href="/network-security/enterprise-data-loss-prevention" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-4:data loss prevention" rel="noopener">
+                                                                Data Loss Prevention
+                                                            </a></li>
+                                    <li class="link"><a href="/network-security/enterprise-iot-security" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-5:iot security" rel="noopener">
+                                                                IoT Security
+                                                            </a></li>
+                                    <li class="sub-title nav-subheader"><a href="/network-security/next-generation-firewall" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-6:next-generation firewalls" rel="noopener">
+                                                                Next-Generation Firewalls
+                                                            </a></li>
+                                    <li class="link"><a href="/network-security/next-generation-firewall-hardware" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-7:hardware firewalls" rel="noopener">
+                                                                Hardware Firewalls
+                                                            </a></li>
+                                    <li class="link"><a href="/network-security/strata-cloud-manager" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-8:strata cloud manager" rel="noopener">
+                                                                Strata Cloud Manager
+                                                            </a></li>
+                                    <li class="sub-title nav-subheader"><a href="/sase" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-9:secure access service edge" rel="noopener">
+                                                                SECURE ACCESS SERVICE EDGE
+                                                            </a></li>
+                                    <li class="link"><a href="/sase/access" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-10:prisma access" rel="noopener">
+                                                                Prisma Access
+                                                            </a></li>
+                                    <li class="link"><a href="/sase/sd-wan" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-11:prisma sd-wan" rel="noopener">
+                                                                Prisma SD-WAN
+                                                            </a></li>
+                                    <li class="link"><a href="/sase/adem" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-12:autonomous digital experience management" rel="noopener">
+                                                                Autonomous Digital Experience Management
+                                                            </a></li>
+                                    <li class="link"><a href="/sase/next-gen-casb" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-13:cloud access security broker" rel="noopener">
+                                                                Cloud Access Security Broker
+                                                            </a></li>
+                                    <li class="link"><a href="/sase/ztna" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-14:zero trust network access" rel="noopener">
+                                                                Zero Trust Network Access
+                                                            </a></li>
+                                </ul>
+    
+                                <ul class="list-unstyled nav-list mb-0"><li class="sub-title nav-subheader"><a href="/cortex/cloud" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="network-security:mainfootercomp:col-0:link-0:cloud security" rel="noopener"> 
+                                    Cloud Security
+                                </a></li><li class="link"><a href="/cortex/cloud" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="network-security:mainfootercomp:col-0:link-1:cortex cloud" rel="noopener"> 
+                                    Cortex Cloud
+                                </a></li><li class="link"><a href="/prisma/cloud" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="network-security:mainfootercomp:col-0:link-2:prisma cloud" rel="noopener"> 
+                                    Prisma Cloud
+                                </a></li></ul>
+    
+                                <ul class="list-unstyled nav-list mb-0">
+                                    <li class="sub-title nav-subheader"><a href="/cortex" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-0:ai-driven security operations platform" rel="noopener">
+                                                                AI-Driven Security Operations Platform
+                                                            </a></li>
+                                    <li class="link"><a href="/cortex/cortex-xdr" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-1:cortex xdr" rel="noopener">
+                                                                Cortex XDR
+                                                            </a></li>
+                                    <li class="link"><a href="/cortex/cortex-xsoar" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-2:cortex xsoar" rel="noopener">
+                                                                Cortex XSOAR
+                                                            </a></li>
+                                    <li class="link"><a href="/cortex/cortex-xpanse" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-3:cortex xpanse" rel="noopener">
+                                                                Cortex Xpanse
+                                                            </a></li>
+                                    <li class="link"><a href="/cortex/cortex-xsiam" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-4:cortex xsiam" rel="noopener">
+                                                                Cortex XSIAM
+                                                            </a></li>
+                                    <li class="link"><a href="/cortex/cortex-xpanse/attack-surface-management" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-5:external attack surface protection" rel="noopener">
+                                                                External Attack Surface Protection
+                                                            </a></li>
+                                    <li class="link"><a href="/cortex/security-operations-automation" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-6:security automation" rel="noopener">
+                                                                Security Automation
+                                                            </a></li>
+                                    <li class="link"><a href="/cortex/detection-and-response" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-7:threat prevention detection &amp;amp; response" rel="noopener">
+                                                                Threat Prevention, Detection &amp; Response
+                                                            </a></li>
+                                </ul>
+    
+                                <ul class="list-unstyled nav-list mb-0">
+                                    <li class="sub-title nav-subheader"><a href="/unit42" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-0:threat intel and incident response services" rel="noopener">
+                                                                Threat Intel and Incident Response Services
+                                                            </a></li>
+                                    <li class="link"><a href="/unit42/assess" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-1:proactive assessments" rel="noopener">
+                                                                Proactive Assessments
+                                                            </a></li>
+                                    <li class="link"><a href="/unit42/respond" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-2:incident response" rel="noopener">
+                                                                Incident Response
+                                                            </a></li>
+                                    <li class="link"><a href="/unit42/transform" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-3:transform your security strategy" rel="noopener">
+                                                                Transform Your Security Strategy
+                                                            </a></li>
+                                    <li class="link"><a href="/unit42/threat-intelligence-partners" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-0:link-4:discover threat intelligence" rel="noopener">
+                                                                Discover Threat Intelligence
+                                                            </a></li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="col-12 col-md-4 col-xxl-2">
+                            <div class="heading-col collapsed pr-4 pr-md-0" data-toggle="collapse" data-target="#collapse_col_1">
+                                <h2 class="nav-headline mb-0">Company</h2>
+                            </div>
+                            <div id="collapse_col_1" class="columns collapse d-md-flex flex-nowrap" data-parent="#footer_accordion">
+                                <ul class="list-unstyled nav-list mb-0">
+                                    <li class="link"><a href="/about-us" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-1:link-0:about us" rel="noopener">
+                                                                About Us
+                                                            </a></li>
+                                    <li class="link"><a href="https://jobs.paloaltonetworks.com/en/" class="d-flex d-md-inline text-black" target="_blank" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-1:link-1:careers" rel="noopener">
+                                                                Careers
+                                                            </a></li>
+                                    <li class="link"><a href="/company/contact-sales" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-1:link-2:contact us" rel="noopener">
+                                                                Contact Us
+                                                            </a></li>
+                                    <li class="link"><a href="/about-us/corporate-responsibility" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-1:link-3:corporate responsiblity" rel="noopener">
+                                                                Corporate Responsiblity
+                                                            </a></li>
+                                    <li class="link"><a href="/customers" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-1:link-4:customers" rel="noopener">
+                                                                Customers
+                                                            </a></li>
+                                    <li class="link"><a href="https://investors.paloaltonetworks.com/" class="d-flex d-md-inline text-black" target="_blank" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-1:link-5:investor relations" rel="noopener">
+                                                                Investor Relations
+                                                            </a></li>
+                                    <li class="link"><a href="/about-us/locations" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-1:link-6:location" rel="noopener">
+                                                                Location
+                                                            </a></li>
+                                    <li class="link"><a href="/company/newsroom" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-1:link-7:newsroom" rel="noopener">
+                                                                Newsroom
+                                                            </a></li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="col-12 col-md-4 col-xxl-2">
+                            <div class="heading-col collapsed pr-4 pr-md-0" data-toggle="collapse" data-target="#collapse_col_2">
+                                <h2 class="nav-headline mb-0">Popular Links</h2>
+                            </div>
+                            <div id="collapse_col_2" class="columns collapse d-md-flex flex-nowrap" data-parent="#footer_accordion">
+                                <ul class="list-unstyled nav-list mb-0">
+                                    <li class="link"><a href="https://www.paloaltonetworks.com/blog/" class="d-flex d-md-inline text-black" target="_blank" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-0:blog" rel="noopener">
+                                                                Blog
+                                                            </a></li>
+                                    <li class="link"><a href="/communities" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-1:communities" rel="noopener">
+                                                                Communities
+                                                            </a></li>
+                                    <li class="link"><a href="/resources" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-2:content library" rel="noopener">
+                                                                Content Library
+                                                            </a></li>
+                                    <li class="link"><a href="/cyberpedia" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-3:cyberpedia" rel="noopener">
+                                                                Cyberpedia
+                                                            </a></li>
+                                    <li class="link"><a href="https://events.paloaltonetworks.com/" class="d-flex d-md-inline text-black" target="_blank" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-4:event center" rel="noopener">
+                                                                Event Center
+                                                            </a></li>
+                                    <li class="link"><a href="https://start.paloaltonetworks.com/preference-center" class="d-flex d-md-inline text-black" target="_blank" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-5:manage email preferences" rel="noopener">
+                                                                Manage Email Preferences
+                                                            </a></li>
+                                    <li class="link"><a href="/products/products-a-z" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-6:products a-z" rel="noopener">
+                                                                Products A-Z
+                                                            </a></li>
+                                    <li class="link"><a href="/legal-notices/trust-center/tech-certs" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-7:product certifications" rel="noopener">
+                                                                Product Certifications
+                                                            </a></li>
+                                    <li class="link"><a href="/security-disclosure" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-8:report a vulnerability" rel="noopener">
+                                                                Report a Vulnerability
+                                                            </a></li>
+                                    <li class="link"><a href="/sitemap" class="d-flex d-md-inline text-black" target="_self" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-9:sitemap" rel="noopener">
+                                                                Sitemap
+                                                            </a></li>
+                                    <li class="link"><a href="https://docs.paloaltonetworks.com/" class="d-flex d-md-inline text-black" target="_blank" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-10:tech docs" rel="nofollow noopener">
+                                                                Tech Docs
+                                                            </a></li>
+                                    <li class="link"><a href="https://unit42.paloaltonetworks.com/" class="d-flex d-md-inline text-black" target="_blank" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-11:unit 42" rel="noopener">
+                                                                Unit 42
+                                                            </a></li>
+                                    <li class="link"><a href="https://panwedd.exterro.net/portal/dsar.htm?target=panwedd" class="d-flex d-md-inline text-black" target="_blank" data-page-track="true" data-page-track-value="en_us:mainfootercomp:col-2:link-12:do not sell or share my personal information"
+                                        rel="noopener">
+                                                                Do Not Sell or Share My Personal Information
+                                                            </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer-bottom">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-6 order-md-1 col-xxl-12">
+                            <div class="pan-logo d-flex">
+                                <img src="/var/images/pan-logo-dark.svg" alt="Paloaltonetworks logo">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 order-md-3 col-xxl-8 order-xxl-2">
+                            <ul class="list-unstyled bottom-links nav-list d-flex flex-column flex-md-row">
+                                <li>
+                                    <a href="/legal-notices/privacy" class="text-black" data-page-track="true" data-page-track-value="404:mainfootercomp:bottomlinks-0:privacy:privacy">
+                                Privacy
+                            </a>
+                                </li>
+    
+                                <li>
+                                    <a href="/legal-notices/trust-center" class="text-black" data-page-track="true" data-page-track-value="404:mainfootercomp:bottomlinks-1:trust center:trust center">
+                                Trust Center
+                            </a>
+                                </li>
+    
+                                <li>
+                                    <a href="/legal-notices/terms-of-use" class="text-black" data-page-track="true" data-page-track-value="404:mainfootercomp:bottomlinks-2:terms of use:terms of use">
+                                Terms of Use
+                            </a>
+                                </li>
+    
+                                <li>
+                                    <a href="/legal" class="text-black" data-page-track="true" data-page-track-value="404:mainfootercomp:bottomlinks-3:documents:documents">
+                                Documents
+                            </a>
+                                </li>
+                            </ul>
+                            <p class="copyright text-black nav-list mb-3 mb-md-0">Copyright © <span id="copyrightYear"></span> Palo Alto Networks. All Rights Reserved</p>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 col-xxl-4 order-xxl-3">
+                            <ul class="list-unstyled social-icons d-flex justify-content-start justify-content-md-end align-items-center">
+    
+                                <li>
+                                    <a href="https://www.youtube.com/user/paloaltonetworks" target="_blank" class="social-icon d-flex" aria-label="social link" data-page-track="true" data-page-track-value="404:mainfootercomp:socials-0::" rel="noopener">
+                                        <img src="/var/images/youtube-black.svg" alt="Youtube link" class="lozad ">
+                                    </a>
+                                </li>
+    
+                                <li>
+                                    <a href="https://twitter.com/PaloAltoNtwks" target="_blank" class="social-icon d-flex" aria-label="social link" data-page-track="true" data-page-track-value="404:mainfootercomp:socials-1::" rel="noopener">
+                                        <img src="/var/images/twitter-x-black.svg" alt="twitter-x-black">
+                                    </a>
+                                </li>
+    
+                                <li>
+                                    <a href="https://www.facebook.com/PaloAltoNetworks/" target="_blank" class="social-icon d-flex" aria-label="social link" data-page-track="true" data-page-track-value="404:mainfootercomp:socials-2::" rel="noopener">
+                                        <img src="/var/images/facebook-black.svg" alt="PaloAltoNetworks facebook page link">
+                                    </a>
+                                </li>
+    
+                                <li>
+                                    <a href="https://www.linkedin.com/company/palo-alto-networks" target="_blank" class="social-icon d-flex" aria-label="social link" data-page-track="true" data-page-track-value="404:mainfootercomp:socials-3::" rel="noopener">
+                                        <img src="/var/images/linkedin-black.svg" alt="linkedIn" >
+                                    </a>
+                                </li>
+    
+                                <li>
+                                    <a href="https://paloaltonetworks.com/threatvector" target="_blank" class="social-icon d-flex" aria-label="social link" data-page-track="true" data-page-track-value="404:mainfootercomp:socials-4::" rel="noopener">
+                                        <img src="/var/images/podcast.svg" alt="Podcast unit42" >
+                                    </a>
+                                </li>
+    
+                                <li>
+
+                                   <div class="dropdown">
+                                    <button class="btn btn-language d-inline-flex align-items-center lozad-background" type="button" id="language_dropdown_menu_button" data-toggle="dropdown" aria-expanded="false" data-offset="30" style="background-image: url('/var/images/globe-black.svg');"><span class="d-inline-flex">EN</span><i class="d-inline-flex"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="language_dropdown_menu_button">
+                                        <span class="h8 title d-flex pb-2">Select your language</span>
+                                        <ul class="list-unstyled nav-list p-0 d-block d-md-flex flex-wrap">
+                                            <li class="d-flex"><a class="d-inline-flex" href="#" data-page-track="true" data-page-track-value="footer:language:USA (ENGLISH)">USA (ENGLISH)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.com.au" data-page-track="true" data-page-track-value="footer:language:AUSTRALIA (ENGLISH)">AUSTRALIA (ENGLISH)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.com.br" data-page-track="true" data-page-track-value="footer:language:BRAZIL (PORTUGUÉS)">BRAZIL (PORTUGUÉS)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.ca" data-page-track="true" data-page-track-value="footer:language:CANADA (ENGLISH)">CANADA (ENGLISH)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.cn" data-page-track="true" data-page-track-value="footer:language:CHINA (简体中文)">CHINA (简体中文)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.fr" data-page-track="true" data-page-track-value="footer:language:FRANCE (FRANÇAIS)">FRANCE (FRANÇAIS)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.de" data-page-track="true" data-page-track-value="footer:language:GERMANY (DEUTSCH)">GERMANY (DEUTSCH)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.in" data-page-track="true" data-page-track-value="footer:language:INDIA (ENGLISH)">INDIA (ENGLISH)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.it" data-page-track="true" data-page-track-value="footer:language:ITALY (ITALIANO)">ITALY (ITALIANO)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.jp" data-page-track="true" data-page-track-value="footer:language:JAPAN (日本語)">JAPAN (日本語)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.co.kr" data-page-track="true" data-page-track-value="footer:language:KOREA (한국어)">KOREA (한국어)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.lat" data-page-track="true" data-page-track-value="footer:language:LATIN AMERICA (ESPAÑOL)">LATIN AMERICA (ESPAÑOL)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.com.mx" data-page-track="true" data-page-track-value="footer:language:MEXICO (ESPAÑOL)">MEXICO (ESPAÑOL)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.sg" data-page-track="true" data-page-track-value="footer:language:SINGAPORE (ENGLISH)">SINGAPORE (ENGLISH)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.es" data-page-track="true" data-page-track-value="footer:language:SPAIN (ESPAÑOL)">SPAIN (ESPAÑOL)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.tw" data-page-track="true" data-page-track-value="footer:language:TAIWAN (繁體中文)">TAIWAN (繁體中文)</a></li>
+                                            <li class="d-flex"><a class="d-inline-flex" href="https://www.paloaltonetworks.co.uk" data-page-track="true" data-page-track-value="footer:language:UK (ENGLISH)">UK (ENGLISH)</a></li>
+                                        </ul>
+                                    </div>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+    
+    <script src="https://www.paloaltonetworks.com/var/js/popper.min.js" defer></script>  
+    <script src="https://www.paloaltonetworks.com/var/js/bootstrap.min.js" defer></script>
+    <script src="/var/js/navDynamic.js" defer></script>  
+    <script src="https://www.paloaltonetworks.com/var/js/footerDynamic.js" defer></script>  
+</body>
+</html>

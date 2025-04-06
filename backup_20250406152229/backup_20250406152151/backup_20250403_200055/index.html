@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dot1.1Xer Supreme Configurator</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="assets/images/logo.png" alt="Dot1Xer Supreme Logo" class="logo">
+    </div>
+    <h1 class="title">Dot1.1Xer Supreme</h1>
+  </header>
+
+  <!-- Main container for scaling UI -->
+  <div class="container">
+    <!-- Top Navigation Tabs -->
+    <nav class="top-tabs">
+      <button class="tab-btn active" data-tab="configurator">Configurator</button>
+      <button class="tab-btn" data-tab="ai">AI Integration</button>
+      <button class="tab-btn" data-tab="reference">Reference Architecture</button>
+      <button class="tab-btn" data-tab="discovery">Environmental Discovery</button>
+      <button class="tab-btn" data-tab="help">Help</button>
+    </nav>
+
+    <!-- Banner Image -->
+<div class="banner-container">
+  <video autoplay loop muted playsinline id="main-banner">
+    <source src="assets/videos/main-banner.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+    <!-- Configurator Tab -->
+    <div class="tab-content" id="configurator">
+      <h2>Configurator</h2>
+      <p>Follow the steps below to generate your advanced AAA/802.1X configuration.</p>
+      
+      <!-- Project Details Section - Optional but present -->
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" id="project-detail-toggle"> 
+          Include Project Details
+        </label>
+      </div>
+      
+      <div id="project-details-section" class="project-details" style="display: none;">
+        <h3>Project Details</h3>
+        <div class="form-group">
+          <label for="company-name">Company Name:</label>
+          <input type="text" id="company-name" placeholder="Enter company name">
+        </div>
+        <div class="form-group">
+          <label for="sfdc-opportunity">SFDC Opportunity:</label>
+          <input type="text" id="sfdc-opportunity" placeholder="SFDC opportunity number">
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="se-email">SE Email:</label>
+            <input type="email" id="se-email" placeholder="SE email address">
+          </div>
+          <div class="col">
+            <label for="customer-email">Customer Email:</label>
+            <input type="email" id="customer-email" placeholder="Customer email address">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Multi-Vendor Config Toggle -->
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" id="multi-vendor-toggle"> 
+          Configure Multiple Vendors
+        </label>
+      </div>
+      
+      <div id="multi-vendor-section" class="multi-vendor-config" style="display: none;">
+        <h3>Multi-Vendor Configuration</h3>
+        <p>Select and configure multiple vendors at once. Add vendors to the list below:</p>
+        <ul id="vendor-list" class="vendor-list"></ul>
+        <button type="button" id="add-vendor-button" class="btn">Add Current Vendor</button>
+      </div>
+
+      <!-- Clickable Step Indicator -->
+      <div class="step-indicator">
+        <div class="step active" data-step="1" onclick="goToStep(1)">Platform</div>
+        <div class="step" data-step="2" onclick="goToStep(2)">Authentication</div>
+        <div class="step" data-step="3" onclick="goToStep(3)">Servers</div>
+        <div class="step" data-step="4" onclick="goToStep(4)">VLANs</div>
+        <div class="step" data-step="5" onclick="goToStep(5)">Advanced</div>
+        <div class="step" data-step="6" onclick="goToStep(6)">Preview</div>
+      </div>
+
+      <div id="error-message" class="error-message" style="display: none;"></div>
+      <div id="success-message" class="alert alert-success" style="display: none;"></div>
+
+      <!-- Step 1: Platform Selection -->
+      <div class="step-content" id="step-1">
+        <h3>Step 1: Platform Selection</h3>
+        <div class="form-group">
+          <label for="vendor-select">Vendor:</label>
+          <select id="vendor-select" name="vendor">
+            <option value="cisco">Cisco</option>
+            <option value="aruba">Aruba (HPE)</option>
+            <option value="juniper">Juniper</option>
+            <option value="fortinet">Fortinet</option>
+            <option value="arista">Arista</option>
+            <option value="extreme">Extreme Networks</option>
+            <option value="huawei">Huawei</option>
+            <option value="alcatel">Alcatel-Lucent</option>
+            <option value="ubiquiti">Ubiquiti</option>
+            <option value="hp">HP (ProCurve)</option>
+            <option value="dell">Dell (PowerSwitch)</option>
+            <option value="netgear">NETGEAR</option>
+            <option value="ruckus">Ruckus (CommScope)</option>
+            <option value="brocade">Brocade (Ruckus)</option>
+            <option value="paloalto">Palo Alto Networks</option>
+            <option value="checkpoint">Check Point</option>
+            <option value="sonicwall">SonicWall</option>
+            <option value="portnox">Portnox Cloud</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="platform-select">Platform:</label>
+          <select id="platform-select" name="platform"></select>
+        </div>
+        <div class="platform-info">
+          <h4>Platform Details</h4>
+          <div id="platform-description">
+            <p>Select a vendor to see platform details.</p>
+          </div>
+        </div>
+        <!-- Vendor-Specific Options -->
+        <div id="vendor-specific-options">
+          <!-- Cisco IOS-XE Options -->
+          <div id="cisco-ios-xe-options" class="vendor-specific" style="display: none;">
+            <h4>Cisco IOS-XE Configuration Options</h4>
+            <div class="form-group">
+              <label for="cisco-ios-xe-command-mode">Command Mode:</label>
+              <select id="cisco-ios-xe-command-mode">
+                <option value="global">Global Configuration</option>
+                <option value="interface">Interface Configuration</option>
+                <option value="both" selected>Both</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cisco-ios-xe-auth-mode">Authentication Mode:</label>
+              <select id="cisco-ios-xe-auth-mode">
+                <option value="multi-auth">Multi-Auth</option>
+                <option value="multi-domain">Multi-Domain</option>
+                <option value="multi-host">Multi-Host</option>
+                <option value="single-host" selected>Single-Host</option>
+              </select>
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="cisco-ios-xe-ibns" checked> 
+                Enable IBNS 2.0 Policy Maps
+              </label>
+            </div>
+          </div>
+          <!-- Cisco NX-OS Options -->
+          <div id="cisco-nx-os-options" class="vendor-specific" style="display: none;">
+            <h4>Cisco NX-OS Configuration Options</h4>
+            <div class="form-group">
+              <label for="cisco-nx-os-vrf">VRF for RADIUS:</label>
+              <input type="text" id="cisco-nx-os-vrf" value="default" placeholder="e.g., default">
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="cisco-nx-os-eap"> 
+                Enable EAP for MAB
+              </label>
+            </div>
+          </div>
+          <!-- Aruba AOS-CX Options -->
+          <div id="aruba-aos-cx-options" class="vendor-specific" style="display: none;">
+            <h4>Aruba AOS-CX Configuration Options</h4>
+            <div class="form-group">
+              <label for="aruba-aos-cx-auth-mode">Authentication Mode:</label>
+              <select id="aruba-aos-cx-auth-mode">
+                <option value="port-based" selected>Port-Based</option>
+                <option value="user-based">User-Based</option>
+              </select>
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="aruba-aos-cx-mac-auth-first" checked> 
+                Prioritize MAC Authentication
+              </label>
+            </div>
+          </div>
+          <!-- Add similar blocks for other vendors -->
+        </div>
+        <div class="nav-buttons">
+          <button type="button" class="next-btn" onclick="goToStep(2)">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Authentication Method -->
+      <div class="step-content" id="step-2" style="display: none;">
+        <h3>Step 2: Authentication Method</h3>
+        <div class="form-group">
+          <label for="auth-method">Authentication Method:</label>
+          <select id="auth-method" name="auth_method">
+            <option value="dot1x-mab">802.1X with MAB Fallback (Sequential)</option>
+            <option value="concurrent">802.1X and MAB Concurrent</option>
+            <option value="dot1x-only">802.1X Only</option>
+            <option value="mab-only">MAC Authentication Only</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Authentication Mode:</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="auth_mode" value="closed" checked> 
+              Closed Mode (No access until authentication succeeds)
+            </label>
+            <label>
+              <input type="radio" name="auth_mode" value="open"> 
+              Open Mode (Allow limited access before authentication)
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="host-mode">Host Mode:</label>
+          <select id="host-mode" name="host_mode">
+            <option value="single-host">Single Host (One device per port)</option>
+            <option value="multi-auth">Multi-Auth (Multiple devices, each authenticated)</option>
+            <option value="multi-domain">Multi-Domain (One voice, one data device)</option>
+            <option value="multi-host">Multi-Host (One auth for all devices)</option>
+          </select>
+        </div>
+        <div class="nav-buttons">
+          <button type="button" class="prev-btn" onclick="goToStep(1)">Previous</button>
+          <button type="button" class="next-btn" onclick="goToStep(3)">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Server Configuration -->
+      <div class="step-content" id="step-3" style="display: none;">
+        <h3>Step 3: Server Configuration</h3>
+        <div class="tab-control">
+          <button class="tab-control-btn active" data-tab="radius-tab">RADIUS</button>
+          <button class="tab-control-btn" data-tab="tacacs-tab">TACACS+</button>
+          <button class="tab-control-btn" data-tab="radsec-tab">RadSec</button>
+        </div>
+
+        <!-- RADIUS Tab - Dynamic Server Management -->
+        <div class="server-tab active" id="radius-tab">
+          <h4>RADIUS Servers</h4>
+          <div class="form-group">
+            <label for="radius-server-group">Server Group Name:</label>
+            <input type="text" id="radius-server-group" value="RADIUS-SERVERS" placeholder="e.g., RADIUS-SERVERS">
+            <div id="radius-servers">
+              <div class="radius-server-entry" data-index="1">
+                <h5>RADIUS Server 1</h5>
+                <div class="row">
+                  <div class="col">
+                    <label for="radius-ip-1">Server IP:</label>
+                    <input type="text" id="radius-ip-1" placeholder="e.g., 10.1.1.100">
+                  </div>
+                  <div class="col">
+                    <label for="radius-key-1">Shared Secret:</label>
+                    <input type="password" id="radius-key-1" placeholder="Shared secret">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="radius-auth-port-1">Authentication Port:</label>
+                    <input type="number" id="radius-auth-port-1" value="1812">
+                  </div>
+                  <div class="col">
+                    <label for="radius-acct-port-1">Accounting Port:</label>
+                    <input type="number" id="radius-acct-port-1" value="1813">
+                  </div>
+                  <div class="col">
+                    <label for="radius-coa-port-1">CoA Port:</label>
+                    <input type="number" id="radius-coa-port-1" value="3799">
+                  </div>
+                </div>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="radius-enable-coa-1" checked> 
+                    Enable Change of Authorization (CoA)
+                  </label>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn" onclick="addRadiusServer()">Add Another RADIUS Server</button>
+          </div>
+          
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>RADIUS Advanced Settings</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="row">
+                <div class="col">
+                  <label for="radius-timeout">Timeout (seconds):</label>
+                  <input type="number" id="radius-timeout" value="5">
+                </div>
+                <div class="col">
+                  <label for="radius-retransmit">Retransmit Count:</label>
+                  <input type="number" id="radius-retransmit" value="3">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="radius-deadtime">Dead Time (minutes):</label>
+                  <input type="number" id="radius-deadtime" value="15">
+                </div>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="radius-load-balance"> 
+                  Enable Load Balancing
+                </label>
+              </div>
+              <div id="load-balance-options" style="display: none;">
+                <label for="load-balance-method">Load Balance Method:</label>
+                <select id="load-balance-method">
+                  <option value="least-outstanding">Least Outstanding</option>
+                  <option value="batch">Batch</option>
+                  <option value="simple">Simple Round-Robin</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>Server Testing</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="radius-testing" checked> 
+                  Enable Automated Server Testing
+                </label>
+              </div>
+              <div id="testing-options">
+                <label for="testing-username">Testing Username:</label>
+                <input type="text" id="testing-username" value="radius-test">
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="testing-idle-time" checked> 
+                    Enable Idle-Time Testing
+                  </label>
+                </div>
+                <div id="idle-time-options">
+                  <label for="idle-time">Idle Time (minutes):</label>
+                  <input type="number" id="idle-time" value="60">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>RADIUS Attributes</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="row">
+                <div class="col">
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="attr-nas-ip" checked> 
+                      Include NAS-IP-Address (4)
+                    </label>
+                  </div>
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="attr-service-type" checked> 
+                      Include Service-Type (6)
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="attr-framed-mtu"> 
+                      Include Framed-MTU (12)
+                    </label>
+                  </div>
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="attr-class" checked> 
+                      Include Class (25)
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <label for="mac-format">MAC Address Format:</label>
+              <select id="mac-format">
+                <option value="ietf">IETF (xx-xx-xx-xx-xx-xx)</option>
+                <option value="cisco">Cisco (xxxx.xxxx.xxxx)</option>
+                <option value="unformatted">Unformatted (xxxxxxxxxxxx)</option>
+              </select>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="mac-case" checked> 
+                  Use Uppercase for MAC Address
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TACACS+ Tab -->
+        <div class="server-tab" id="tacacs-tab" style="display: none;">
+          <h4>TACACS+ Servers</h4>
+          <div class="form-group">
+            <label for="tacacs-server-group">Server Group Name:</label>
+            <input type="text" id="tacacs-server-group" value="TACACS-SERVERS" placeholder="e.g., TACACS-SERVERS">
+            <div id="tacacs-servers">
+              <div class="tacacs-server-entry" data-index="1">
+                <h5>TACACS+ Server 1</h5>
+                <div class="row">
+                  <div class="col">
+                    <label for="tacacs-ip-1">Server IP:</label>
+                    <input type="text" id="tacacs-ip-1" placeholder="e.g., 10.1.1.102">
+                  </div>
+                  <div class="col">
+                    <label for="tacacs-key-1">Shared Secret:</label>
+                    <input type="password" id="tacacs-key-1" placeholder="Shared secret">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="tacacs-port-1">Port:</label>
+                    <input type="number" id="tacacs-port-1" value="49">
+                  </div>
+                  <div class="col">
+                    <label for="tacacs-timeout-1">Timeout (seconds):</label>
+                    <input type="number" id="tacacs-timeout-1" value="5">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn" onclick="addTacacsServer()">Add Another TACACS+ Server</button>
+          </div>
+          
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>TACACS+ Options</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="tacacs-single-connection"> 
+                  Enable Single-Connection Mode
+                </label>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="tacacs-directed-request"> 
+                  Enable Directed-Request Mode
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>TACACS+ Authorization</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="auth-exec" checked> 
+                  Enable EXEC Authorization
+                </label>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="auth-commands" checked> 
+                  Enable Command Authorization
+                </label>
+              </div>
+              <div id="command-auth-options">
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="auth-commands-15" checked> 
+                    Privilege Level 15 (Enable)
+                  </label>
+                </div>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="auth-commands-1"> 
+                    Privilege Level 1 (User)
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>TACACS+ Accounting</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="acct-exec" checked> 
+                  Enable EXEC Session Accounting
+                </label>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="acct-commands" checked> 
+                  Enable Command Accounting
+                </label>
+              </div>
+              <div id="command-acct-options">
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="acct-commands-15" checked> 
+                    Privilege Level 15 (Enable)
+                  </label>
+                </div>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="acct-commands-1"> 
+                    Privilege Level 1 (User)
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RadSec Tab - Dynamic Server Management -->
+        <div class="server-tab" id="radsec-tab" style="display: none;">
+          <h4>RADIUS over TLS (RadSec) Configuration</h4>
+          <div class="form-group">
+            <div id="radsec-servers">
+              <div class="radsec-server-entry" data-index="1">
+                <h5>RadSec Server 1</h5>
+                <div class="row">
+                  <div class="col">
+                    <label for="radsec-ip-1">Server IP:</label>
+                    <input type="text" id="radsec-ip-1" placeholder="e.g., 10.1.1.104">
+                  </div>
+                  <div class="col">
+                    <label for="radsec-key-1">Shared Secret:</label>
+                    <input type="password" id="radsec-key-1" placeholder="Shared secret">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="radsec-port-1">TLS Port:</label>
+                    <input type="number" id="radsec-port-1" value="2083">
+                  </div>
+                  <div class="col">
+                    <label for="radsec-protocol-1">Protocol:</label>
+                    <select id="radsec-protocol-1">
+                      <option value="tls" selected>TLS</option>
+                      <option value="dtls">DTLS</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="radsec-validate-server-1" checked> 
+                    Validate Server Certificate
+                  </label>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn" onclick="addRadSecServer()">Add Another RadSec Server</button>
+          </div>
+          
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>Certificate Configuration</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="row">
+                <div class="col">
+                  <label for="client-trustpoint">Client Trustpoint:</label>
+                  <input type="text" id="client-trustpoint" placeholder="e.g., SWITCH-CERT">
+                </div>
+                <div class="col">
+                  <label for="server-trustpoint">Server Trustpoint:</label>
+                  <input type="text" id="server-trustpoint" placeholder="e.g., ISE-CERT">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion">
+            <div class="accordion-header">
+              <span>Connection Parameters</span>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <div class="row">
+                <div class="col">
+                  <label for="tls-conn-timeout">Connection Timeout (sec):</label>
+                  <input type="number" id="tls-conn-timeout" value="10">
+                </div>
+                <div class="col">
+                  <label for="tls-idle-timeout">Idle Timeout (sec):</label>
+                  <input type="number" id="tls-idle-timeout" value="60">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="tls-retries">Retries:</label>
+                  <input type="number" id="tls-retries" value="3">
+                </div>
+                <div class="col">
+                  <label for="tls-watchdog">Watchdog Interval (sec):</label>
+                  <input type="number" id="tls-watchdog" value="30">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="prev-btn" onclick="goToStep(2)">Previous</button>
+          <button type="button" class="next-btn" onclick="goToStep(4)">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 4: VLAN Configuration -->
+      <div class="step-content" id="step-4" style="display: none;">
+        <h3>Step 4: VLAN Configuration</h3>
+        <div class="form-group">
+          <label for="data-vlan">Data VLAN: <span class="required">*</span></label>
+          <input type="number" id="data-vlan" placeholder="e.g., 10" required>
+          <label for="voice-vlan">Voice VLAN:</label>
+          <input type="number" id="voice-vlan" placeholder="e.g., 20">
+          <label for="guest-vlan">Guest VLAN:</label>
+          <input type="number" id="guest-vlan" placeholder="e.g., 30">
+          <label for="critical-vlan">Critical VLAN:</label>
+          <input type="number" id="critical-vlan" placeholder="e.g., 40">
+          <label for="auth-fail-vlan">Auth-Fail VLAN:</label>
+          <input type="number" id="auth-fail-vlan" placeholder="e.g., 50">
+        </div>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Dynamic VLAN Assignment</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="enable-dynamic-vlan" checked> 
+                Enable Dynamic VLAN Assignment
+              </label>
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="override-voice-vlan"> 
+                Allow RADIUS to Override Voice VLAN
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Pre-Authentication ACL</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="enable-preauth-acl"> 
+                Configure Pre-Authentication ACL
+              </label>
+            </div>
+            <div id="preauth-acl-options" style="display: none;">
+              <label for="preauth-acl-name">Pre-Auth ACL Name:</label>
+              <input type="text" id="preauth-acl-name" placeholder="e.g., PREAUTH_ACL">
+              <label for="preauth-acl-content">ACL Content:</label>
+              <textarea id="preauth-acl-content" rows="5" placeholder="permit udp any any eq bootps\npermit udp any any eq domain\npermit tcp any any eq www\npermit tcp any any eq 443"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Dynamic ACL Assignment</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="enable-dynamic-acl" checked> 
+                Enable RADIUS-Assigned ACLs
+              </label>
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="enable-filter-id"> 
+                Enable Filter-Id Attribute
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="nav-buttons">
+          <button type="button" class="prev-btn" onclick="goToStep(3)">Previous</button>
+          <button type="button" class="next-btn" onclick="goToStep(5)">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Advanced Options -->
+      <div class="step-content" id="step-5" style="display: none;">
+        <h3>Step 5: Advanced Options</h3>
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" id="use-mab" checked> 
+            Enable MAC Authentication Bypass (MAB)
+          </label>
+          <label>
+            <input type="checkbox" id="use-coa" checked> 
+            Enable Change of Authorization (CoA)
+          </label>
+          <label>
+            <input type="checkbox" id="use-local" checked> 
+            Enable Local Authentication Fallback
+          </label>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Authentication Timers</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="row">
+              <div class="col">
+                <label for="reauth-period">Reauthentication Period (seconds):</label>
+                <input type="number" id="reauth-period" value="3600">
+              </div>
+              <div class="col">
+                <label for="timeout-period">Server Timeout (seconds):</label>
+                <input type="number" id="timeout-period" value="30">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="tx-period">TX Period (seconds):</label>
+                <input type="number" id="tx-period" value="5">
+              </div>
+              <div class="col">
+                <label for="quiet-period">Quiet Period (seconds):</label>
+                <input type="number" id="quiet-period" value="60">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="max-reauth-req">Max Reauth Requests:</label>
+                <input type="number" id="max-reauth-req" value="2">
+              </div>
+              <div class="col">
+                <label for="max-auth-req">Max Auth Attempts:</label>
+                <input type="number" id="max-auth-req" value="3">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Interface Configuration</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <label for="interfaces">Interfaces (comma-separated):</label>
+            <input type="text" id="interfaces" placeholder="e.g., GigabitEthernet1/0/1, GigabitEthernet1/0/2-48">
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="spanning-tree-portfast" checked> 
+                Enable Spanning Tree PortFast
+              </label>
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="bpduguard" checked> 
+                Enable BPDU Guard
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Device Tracking</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="enable-device-tracking" checked> 
+                Enable Device Tracking
+              </label>
+            </div>
+            <div id="device-tracking-options">
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="track-ipv4" checked> 
+                  Track IPv4 Addresses
+                </label>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="track-ipv6"> 
+                  Track IPv6 Addresses
+                </label>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="disable-prefix-glean" checked> 
+                  Disable Prefix Glean
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>Logging & Monitoring</span>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="enable-accounting" checked> 
+                Enable Accounting
+              </label>
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="enable-logging"> 
+                Enable Enhanced Logging
+              </label>
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="filter-excessive-logs" checked> 
+                Filter Excessive Authentication Logs
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="nav-buttons">
+          <button type="button" class="prev-btn" onclick="goToStep(4)">Previous</button>
+          <button type="button" class="next-btn" onclick="goToStep(6)">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 6: Configuration Preview -->
+      <div class="step-content" id="step-6" style="display: none;">
+        <h3>Step 6: Configuration Preview</h3>
+        <div class="config-actions">
+          <button type="button" id="generate-btn" onclick="generateAllVendorConfigs()">Generate Configuration</button>
+          <button type="button" id="review-btn" onclick="reviewConfiguration()">Review Configuration</button>
+          <button type="button" id="download-btn" onclick="downloadConfiguration()">Download</button>
+          <button type="button" id="copy-btn" onclick="copyConfiguration()">Copy to Clipboard</button>
+        </div>
+        <div id="config-output-section">
+          <pre id="config-output" class="config-output"></pre>
+        </div>
+        <div id="review-output-section" class="review-output" style="display: none;">
+          <h4>Configuration Review</h4>
+          <div id="review-output"></div>
+        </div>
+        <p><strong>Disclaimer:</strong> Review and test configurations before production deployment.</p>
+        <div class="nav-buttons">
+          <button type="button" class="prev-btn" onclick="goToStep(5)">Previous</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Integration Tab -->
+    <div class="tab-content" id="ai" style="display:none">
+      <h2>AI Integration</h2>
+      <p>Ask our integrated AI for configuration review, troubleshooting tips, or optimization advice.</p>
+      <div class="form-group">
+        <label for="ai-provider">AI Provider:</label>
+        <select id="ai-provider">
+          <option value="anthropic">Anthropic</option>
+          <option value="deepseek">DeepSeek</option>
+          <option value="openai">OpenAI</option>
+        </select>
+      </div>
+      <div class="ai-chat-container">
+        <div class="chat-history" id="chat-history">
+          <div class="ai-message">
+            <div class="message-avatar">
+              <img src="assets/images/ai-avatar.png" alt="AI">
+            </div>
+            <div class="message-content">
+              <p>Hello! I can help with your AAA/802.1X configuration. I can:</p>
+              <ul>
+                <li>Review your generated configuration for best practices</li>
+                <li>Suggest optimizations for your specific environment</li>
+                <li>Help troubleshoot common issues</li>
+                <li>Explain complex configuration sections</li>
+              </ul>
+              <p>What would you like assistance with today?</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <textarea id="ai-query" placeholder="Ask a question about your configuration..." rows="3"></textarea>
+          <button id="send-query" onclick="sendAIQuery()">
+            <img src="assets/images/send.png" alt="Send">
+          </button>
+        </div>
+        <div class="suggested-queries">
+          <h4>Suggested Questions:</h4>
+          <button class="query-suggestion" onclick="useQuerySuggestion(this)">Review my configuration for security issues</button>
+          <button class="query-suggestion" onclick="useQuerySuggestion(this)">What's the difference between Open and Closed mode?</button>
+          <button class="query-suggestion" onclick="useQuerySuggestion(this)">Explain the RADIUS CoA settings in my config</button>
+          <button class="query-suggestion" onclick="useQuerySuggestion(this)">How can I optimize this for a large network?</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reference Architecture Tab -->
+    <div class="tab-content" id="reference" style="display:none">
+      <h2>Reference Architecture</h2>
+      <div class="reference-nav">
+        <button class="ref-tab active" data-tab="overview">Overview</button>
+        <button class="ref-tab" data-tab="authentication">Authentication Flow</button>
+        <button class="ref-tab" data-tab="vlan">VLAN Assignment</button>
+        <button class="ref-tab" data-tab="radsec">RadSec</button>
+        <button class="ref-tab" data-tab="coa">CoA</button>
+        <button class="ref-tab" data-tab="vendors">Vendor Specifics</button>
+      </div>
+      <div class="reference-content">
+        <!-- Overview Section -->
+        <div class="ref-section" id="ref-overview">
+          <h3>802.1X and AAA Overview</h3>
+          <div class="ref-diagram">
+            <img src="assets/diagrams/802.1x-overview.png" alt="802.1X Overview Diagram">
+          </div>
+          <div class="ref-text">
+            <h4>Key Components</h4>
+            <ul>
+              <li><strong>Supplicant:</strong> The endpoint device seeking network access.</li>
+              <li><strong>Authenticator:</strong> The network device (switch/WLC) controlling port access.</li>
+              <li><strong>Authentication Server:</strong> RADIUS server validating credentials (e.g., Cisco ISE, Aruba ClearPass).</li>
+            </ul>
+            <h4>Authentication Methods</h4>
+            <ul>
+              <li><strong>802.1X:</strong> Standards-based port authentication requiring a supplicant.</li>
+              <li><strong>MAC Authentication Bypass (MAB):</strong> Fallback method using the device's MAC address as credentials.</li>
+              <li><strong>WebAuth:</strong> Browser-based authentication for guest access.</li>
+            </ul>
+            <h4>Deployment Modes</h4>
+            <ul>
+              <li><strong>Open (Monitor) Mode:</strong> Authentication is performed but access is not restricted.</li>
+              <li><strong>Low Impact Mode:</strong> Pre-authentication ACL restricts access until authentication.</li>
+              <li><strong>Closed Mode:</strong> No access until successful authentication.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Authentication Flow Section -->
+        <div class="ref-section" id="ref-authentication" style="display:none;">
+          <h3>Authentication Flow</h3>
+          <div class="ref-diagram">
+            <img src="assets/diagrams/auth-flow-diagram.png" alt="Authentication Flow Diagram">
+          </div>
+          <div class="ref-text">
+            <h4>802.1X Authentication Process</h4>
+            <ol>
+              <li>Device connects to switch port.</li>
+              <li>Switch sends EAP-Request/Identity packet.</li>
+              <li>Supplicant responds with EAP-Response/Identity.</li>
+              <li>Switch forwards to RADIUS server in Access-Request.</li>
+              <li>RADIUS server and supplicant exchange authentication messages through switch.</li>
+              <li>RADIUS server sends Access-Accept with attributes or Access-Reject.</li>
+              <li>Switch enforces authorization (VLAN, ACL, etc.).</li>
+            </ol>
+            <h4>MAB Process</h4>
+            <ol>
+              <li>Device connects to switch port.</li>
+              <li>Switch sends EAP-Request/Identity packets (no response).</li>
+              <li>After timeout, switch falls back to MAB.</li>
+              <li>Switch captures device MAC address.</li>
+              <li>Switch sends MAC as username/password to RADIUS.</li>
+              <li>RADIUS server validates MAC and returns authorization.</li>
+            </ol>
+            <h4>Authentication Timers</h4>
+            <ul>
+              <li><strong>tx-period:</strong> Time between EAP retries (default: 30s)</li>
+              <li><strong>max-reauth-req:</strong> Number of retry attempts (default: 2)</li>
+              <li><strong>reauth-period:</strong> Time between periodic reauthentications (default: 3600s)</li>
+            </ul>
+          </div>
+        </div>
+        <!-- VLAN Assignment Section -->
+        <div class="ref-section" id="ref-vlan" style="display:none;">
+          <h3>VLAN Assignment</h3>
+          <div class="ref-diagram">
+            <img src="assets/diagrams/vlan-assignment.png" alt="VLAN Assignment Diagram">
+          </div>
+          <div class="ref-text">
+            <h4>Dynamic VLAN Assignment</h4>
+            <p>RADIUS servers can dynamically assign VLANs to authenticated clients using specific attributes in Access-Accept messages:</p>
+            <ul>
+              <li><strong>Tunnel-Type (64):</strong> Set to VLAN (13)</li>
+              <li><strong>Tunnel-Medium-Type (65):</strong> Set to 802 (6)</li>
+              <li><strong>Tunnel-Private-Group-ID (81):</strong> VLAN ID/name</li>
+            </ul>
+            <h4>Special Purpose VLANs</h4>
+            <ul>
+              <li><strong>Guest VLAN:</strong> For clients that fail 802.1X authentication</li>
+              <li><strong>Auth-Fail VLAN:</strong> For clients that try 802.1X but fail due to invalid credentials</li>
+              <li><strong>Critical VLAN:</strong> Used when RADIUS servers are unreachable</li>
+              <li><strong>Voice VLAN:</strong> Special VLAN for IP phones (used with multi-domain)</li>
+            </ul>
+            <h4>VLAN Assignment Process</h4>
+            <ol>
+              <li>Client authenticates via 802.1X or MAB</li>
+              <li>RADIUS server sends Access-Accept with VLAN attributes</li>
+              <li>Switch applies VLAN to the port/client</li>
+              <li>If RADIUS doesn't specify VLAN, configured access VLAN is used</li>
+              <li>Voice VLAN can be statically configured or dynamically assigned</li>
+            </ol>
+          </div>
+        </div>
+        <!-- RadSec Section -->
+        <div class="ref-section" id="ref-radsec" style="display:none;">
+          <h3>RADIUS over TLS (RadSec)</h3>
+          <div class="ref-diagram">
+            <img src="assets/diagrams/radsec-diagram.png" alt="RadSec Diagram">
+          </div>
+          <div class="ref-text">
+            <h4>What is RadSec?</h4>
+            <p>RadSec (RADIUS over TLS/DTLS) provides encryption for RADIUS traffic, which is normally sent in plaintext. It secures authentication and accounting data between network devices and RADIUS servers.</p>
+            <h4>Benefits of RadSec</h4>
+            <ul>
+              <li><strong>Encryption:</strong> Protects sensitive authentication data</li>
+              <li><strong>Reliability:</strong> TCP-based transmission rather than UDP</li>
+              <li><strong>Certificate-Based:</strong> Uses X.509 certificates for server/client authentication</li>
+              <li><strong>Connection Persistence:</strong> Maintains long-lived connections</li>
+            </ul>
+            <h4>Implementation Considerations</h4>
+            <ul>
+              <li><strong>Certificate Management:</strong> Requires proper PKI infrastructure</li>
+              <li><strong>TCP Port 2083:</strong> Standard RadSec port (vs. 1812/1813 for RADIUS)</li>
+              <li><strong>Fallback:</strong> Can fall back to standard RADIUS if RadSec fails</li>
+              <li><strong>TLS vs. DTLS:</strong> TLS is more common, DTLS available on some platforms</li>
+            </ul>
+          </div>
+        </div>
+        <!-- CoA Section -->
+        <div class="ref-section" id="ref-coa" style="display:none;">
+          <h3>Change of Authorization (CoA)</h3>
+          <div class="ref-diagram">
+            <img src="assets/diagrams/coa-diagram.png" alt="CoA Diagram">
+          </div>
+          <div class="ref-text">
+            <h4>What is CoA?</h4>
+            <p>Change of Authorization (CoA) allows a RADIUS server to dynamically change the authorization attributes of an active session without requiring the client to reauthenticate.</p>
+            <h4>Common CoA Actions</h4>
+            <ul>
+              <li><strong>Session Termination:</strong> Disconnecting a client</li>
+              <li><strong>VLAN Change:</strong> Moving a client to a different VLAN</li>
+              <li><strong>ACL Application:</strong> Applying a new ACL to a session</li>
+              <li><strong>Reauthentication:</strong> Forcing a client to reauthenticate</li>
+            </ul>
+            <h4>CoA Implementation</h4>
+            <ul>
+              <li><strong>UDP Port 3799:</strong> Standard CoA port</li>
+              <li><strong>Shared Secret:</strong> Must match between NAS and RADIUS server</li>
+              <li><strong>Session Identification:</strong> Uses session identifiers (e.g., MAC address)</li>
+              <li><strong>Acknowledgment:</strong> Requires CoA-ACK or CoA-NAK response</li>
+            </ul>
+            <h4>Use Cases</h4>
+            <ul>
+              <li><strong>Posture Assessment:</strong> Changing access based on security posture</li>
+              <li><strong>Time-Based Policies:</strong> Modifying access based on time of day</li>
+              <li><strong>Administrator Action:</strong> Manual changes by security staff</li>
+              <li><strong>Security Incident Response:</strong> Isolating compromised endpoints</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Vendor Specifics Section -->
+        <div class="ref-section" id="ref-vendors" style="display:none;">
+          <h3>Vendor-Specific Implementations</h3>
+          <div class="vendor-comparison">
+            <h4>Key Differences Between Vendors</h4>
+            <table class="vendor-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Cisco IOS-XE</th>
+                  <th>Cisco NX-OS</th>
+                  <th>Aruba AOS-CX</th>
+                  <th>Juniper EX</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Authentication Methods</td>
+                  <td>dot1x, mab, webauth</td>
+                  <td>dot1x, mab</td>
+                  <td>dot1x, mac-auth</td>
+                  <td>dot1x, mac-radius</td>
+                </tr>
+                <tr>
+                  <td>Policy Framework</td>
+                  <td>IBNS 2.0 with policy-maps</td>
+                  <td>Basic dot1x commands</td>
+                  <td>port-access authenticator</td>
+                  <td>authentication-profiles</td>
+                </tr>
+                <tr>
+                  <td>Host Modes</td>
+                  <td>single/multi/multi-domain/multi-auth</td>
+                  <td>single/multi/multi-auth</td>
+                  <td>single/multi</td>
+                  <td>single/multiple/multiple-secure</td>
+                </tr>
+                <tr>
+                  <td>RadSec Support</td>
+                  <td>Yes (TLS/DTLS)</td>
+                  <td>Limited</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>Dynamic ACL</td>
+                  <td>Filter-Id, ACL-Name, dACL</td>
+                  <td>Filter-Id, ACL-Name</td>
+                  <td>Dynamic filters</td>
+                  <td>filter-id</td>
+                </tr>
+              </tbody>
+            </table>
+            <h4>Command Structure Comparison</h4>
+            <table class="vendor-table">
+              <thead>
+                <tr>
+                  <th>Command Purpose</th>
+                  <th>Cisco IOS-XE</th>
+                  <th>Aruba AOS-CX</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Enable 802.1X globally</td>
+                  <td>dot1x system-auth-control</td>
+                  <td>aaa authentication port-access dot1x</td>
+                </tr>
+                <tr>
+                  <td>Enable 802.1X on interface</td>
+                  <td>interface x<br>dot1x pae authenticator</td>
+                  <td>interface x<br>port-access authenticator</td>
+                </tr>
+                <tr>
+                  <td>MAB configuration</td>
+                  <td>mab (in policy-map)</td>
+                  <td>authentication precedence mac-auth</td>
+                </tr>
+                <tr>
+                  <td>Guest VLAN</td>
+                  <td>service-template GUEST_VLAN</td>
+                  <td>authentication guest-vlan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Environmental Discovery Tab -->
+    <div class="tab-content" id="discovery" style="display:none">
+      <h2>Environmental Discovery</h2>
+      <p>This tool helps analyze your network environment to automatically discover devices and AAA settings.</p>
+      <div class="discovery-tabs">
+        <button class="discovery-tab active" data-tab="scan">Network Scan</button>
+        <button class="discovery-tab" data-tab="environment">Environment Profile</button>
+        <button class="discovery-tab" data-tab="scoping">Network Scoping</button>
+        <button class="discovery-tab" data-tab="portnox">Portnox Cloud</button>
+        <button class="discovery-tab" data-tab="import">Import Configuration</button>
+        <button class="discovery-tab" data-tab="analyze">Analysis</button>
+        <button class="discovery-tab" data-tab="report">Report</button>
+      </div>
+      <div class="discovery-content">
+        <!-- Network Scan Tab -->
+        <div class="discovery-section" id="disc-scan">
+          <h3>Network Scan</h3>
+          <div class="form-group">
+            <label for="scan-range">IP Range:</label>
+            <input type="text" id="scan-range" placeholder="e.g., 10.1.1.0/24">
+            <label for="scan-credentials">Credentials:</label>
+            <select id="scan-credentials">
+              <option value="">Select Credentials</option>
+              <option value="new">Add New Credentials...</option>
+            </select>
+            <label for="scan-method">Scan Method:</label>
+            <select id="scan-method">
+              <option value="ping">Ping Sweep</option>
+              <option value="snmp">SNMP</option>
+              <option value="ssh">SSH</option>
+              <option value="api">API</option>
+            </select>
+            <button type="button" id="start-scan">Start Scan</button>
+          </div>
+        </div>
+        <!-- Environment Discovery Section -->
+        <div class="discovery-section" id="disc-environment" style="display: none;">
+          <h3>Environment Discovery</h3>
+          <p>Profile your existing environment to generate a customized architecture diagram and deployment plan.</p>
+          <div class="environment-section">
+            <div class="environment-group">
+              <h4>Infrastructure</h4>
+              <p>Select all elements that exist in your current environment:</p>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" class="env-infrastructure" id="env-active-directory" data-label="Active Directory"> 
+                  Active Directory
+                </label>
+                <div id="env-active-directory-options" class="eap-method-options">
+                  <div class="form-group">
+                    <label for="ad-domain">Domain Name:</label>
+                    <input type="text" id="ad-domain" placeholder="example.com">
+                  </div>
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="ad-multi-domain"> 
+                      Multi-domain environment
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" class="env-infrastructure" id="env-certificate-authority" data-label="Certificate Authority"> 
+                  Certificate Authority
+                </label>
+                <div id="env-certificate-authority-options" class="eap-method-options">
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="ca-microsoft" checked> 
+                      Microsoft CA
+                    </label>
+                  </div>
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="ca-third-party"> 
+                      Third-party CA
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" class="env-infrastructure" id="env-radius" data-label="Existing RADIUS"> 
+                  Existing RADIUS Server
+                </label>
+                <div id="env-radius-options" class="eap-method-options">
+                  <div class="form-group">
+                    <label for="radius-vendor">RADIUS Vendor:</label>
+                    <select id="radius-vendor">
+                      <option value="microsoft-nps">Microsoft NPS</option>
+                      <option value="cisco-ise">Cisco ISE</option>
+                      <option value="freeradius">FreeRADIUS</option>
+                      <option value="aruba-clearpass">Aruba ClearPass</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" class="env-infrastructure" id="env-vpn" data-label="VPN"> 
+                  VPN Infrastructure
+                </label>
+                <div id="env-vpn-options" class="eap-method-options">
+                  <div class="form-group">
+                    <label for="vpn-vendor">VPN Vendor:</label>
+                    <select id="vpn-vendor">
+                      <option value="cisco-anyconnect">Cisco AnyConnect</option>
+                      <option value="palo-globalprotect">Palo Alto GlobalProtect</option>
+                      <option value="fortinet">Fortinet FortiClient</option>
+                      <option value="checkpoint">Check Point</option>
+                      <option value="azure-vpn">Azure VPN</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" class="env-infrastructure" id="env-firewall" data-label="Firewall"> 
+                  Next-Gen Firewall
+                </label>
+                <div id="env-firewall-options" class="eap-method-options">
+                  <div class="form-group">
+                    <label for="firewall-vendor">Firewall Vendor:</label>
+                    <select id="firewall-vendor">
+                      <option value="paloalto">Palo Alto Networks</option>
+                      <option value="fortinet">Fortinet</option>
+                      <option value="checkpoint">Check Point</option>
+                      <option value="cisco-ftd">Cisco Firepower</option>
+                      <option value="sonicwall">SonicWall</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" class="env-infrastructure" id="env-cloud" data-label="Cloud Infrastructure"> 
+                  Cloud Infrastructure
+                </label>
+                <div id="env-cloud-options" class="eap-method-options">
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="cloud-aws"> 
+                      AWS
+                    </label>
+                  </div>
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="cloud-azure" checked> 
+                      Azure
+                    </label>
+                  </div>
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="cloud-gcp"> 
+                      Google Cloud
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="environment-group">
+              <h4>MDM Solution</h4>
+              <p>Select your existing MDM solution:</p>
+              <div class="form-group">
+                <select id="mdm-provider">
+                  <option value="none">None</option>
+                  <option value="intune">Microsoft Intune</option>
+                  <option value="jamf">JAMF</option>
+                  <option value="workspace-one">VMware Workspace ONE</option>
+                  <option value="mas360">IBM MaaS360</option>
+                  <option value="mobileiron">MobileIron</option>
+                  <option value="gpo">Group Policy (GPO)</option>
+                </select>
+              </div>
+              <div id="mdm-options" class="mdm-options"></div>
+            </div>
+            <div class="environment-group">
+              <h4>Identity Provider</h4>
+              <p>Select your existing identity provider:</p>
+              <div class="form-group">
+                <select id="idp-provider">
+                  <option value="none">None</option>
+                  <option value="entra-id">Microsoft Entra ID</option>
+                  <option value="okta">Okta</option>
+                  <option value="google-workspace">Google Workspace</option>
+                  <option value="onelogin">OneLogin</option>
+                  <option value="ping">Ping Identity</option>
+                </select>
+              </div>
+              <div id="idp-options" class="idp-options"></div>
+            </div>
+            <div class="form-actions">
+              <button type="button" onclick="updateEnvironmentSummary()" class="btn">Generate Environment Profile</button>
+            </div>
+          </div>
+          <div id="environment-summary" class="environment-section" style="display: none;"></div>
+        </div>
+        <!-- Network Scoping Tab -->
+        <div class="discovery-section" id="disc-scoping" style="display: none;">
+          <h3>Network Scoping</h3>
+          <p>Define your network scope to generate a deployment plan and architecture diagram.</p>
+          <div class="environment-section">
+            <div class="form-group">
+              <label>Scoping Type:</label>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="scoping_type" value="basic" checked> 
+                  Basic Scoping
+                </label>
+                <label>
+                  <input type="radio" name="scoping_type" value="advanced"> 
+                  Advanced Scoping
+                </label>
+              </div>
+            </div>
+            <div id="basic-scoping">
+              <div class="form-group">
+                <label for="locations-count">Number of Locations:</label>
+                <input type="number" id="locations-count" value="1" min="1">
+              </div>
+              <div class="form-group">
+                <label for="switches-count">Number of Switches:</label>
+                <input type="number" id="switches-count" value="5" min="1">
+              </div>
+              <div class="form-group">
+                <label for="endpoints-count">Number of Endpoints:</label>
+                <input type="number" id="endpoints-count" value="100" min="1">
+              </div>
+              <div class="form-group">
+                <label for="switch-vendor">Switch Vendor:</label>
+                <select id="switch-vendor">
+                  <option value="cisco">Cisco</option>
+                  <option value="aruba">Aruba</option>
+                  <option value="juniper">Juniper</option>
+                  <option value="fortinet">Fortinet</option>
+                  <option value="arista">Arista</option>
+                  <option value="extreme">Extreme Networks</option>
+                  <option value="huawei">Huawei</option>
+                  <option value="alcatel">Alcatel-Lucent</option>
+                  <option value="ubiquiti">Ubiquiti</option>
+                  <option value="hp">HP</option>
+                  <option value="paloalto">Palo Alto Networks</option>
+                  <option value="checkpoint">Check Point</option>
+                  <option value="sonicwall">SonicWall</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="wireless-vendor">Wireless Vendor:</label>
+                <select id="wireless-vendor">
+                  <option value="cisco">Cisco</option>
+                  <option value="aruba">Aruba</option>
+                  <option value="ubiquiti">Ubiquiti</option>
+                  <option value="ruckus">Ruckus</option>
+                  <option value="extreme">Extreme Networks</option>
+                </select>
+              </div>
+            </div>
+            <div id="advanced-scoping" style="display: none;">
+              <div class="form-group">
+                <label for="advanced-locations-count">Number of Locations:</label>
+                <input type="number" id="advanced-locations-count" value="1" min="1">
+              </div>
+              <div class="form-group">
+                <label for="advanced-switches-count">Number of Switches:</label>
+                <input type="number" id="advanced-switches-count" value="5" min="1">
+              </div>
+              <div class="form-group">
+                <label for="advanced-endpoints-count">Number of Endpoints:</label>
+                <input type="number" id="advanced-endpoints-count" value="100" min="1">
+              </div>
+              <div class="form-group">
+                <label for="ap-count">Number of Wireless APs:</label>
+                <input type="number" id="ap-count" value="10" min="0">
+              </div>
+              <div class="form-group">
+                <label for="switch-vendor">Switch Vendor:</label>
+                <select id="switch-vendor">
+                  <option value="cisco">Cisco</option>
+                  <option value="aruba">Aruba</option>
+                  <option value="juniper">Juniper</option>
+                  <option value="fortinet">Fortinet</option>
+                  <option value="arista">Arista</option>
+                  <option value="extreme">Extreme Networks</option>
+                  <option value="huawei">Huawei</option>
+                  <option value="alcatel">Alcatel-Lucent</option>
+                  <option value="ubiquiti">Ubiquiti</option>
+                  <option value="hp">HP</option>
+                  <option value="paloalto">Palo Alto Networks</option>
+                  <option value="checkpoint">Check Point</option>
+                  <option value="sonicwall">SonicWall</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="switch-model">Switch Model:</label>
+                <input type="text" id="switch-model" placeholder="e.g., Catalyst 9300">
+              </div>
+              <div class="form-group">
+                <label for="wireless-vendor">Wireless Vendor:</label>
+                <select id="wireless-vendor">
+                  <option value="cisco">Cisco</option>
+                  <option value="aruba">Aruba</option>
+                  <option value="ubiquiti">Ubiquiti</option>
+                  <option value="ruckus">Ruckus</option>
+                  <option value="extreme">Extreme Networks</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="wireless-model">Wireless Model:</label>
+                <input type="text" id="wireless-model" placeholder="e.g., WLC 9800">
+              </div>
+              <div class="form-group">
+                <label>Authentication Methods:</label>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" class="eap-method" id="eap-tls" value="EAP-TLS" checked> 
+                    EAP-TLS
+                  </label>
+                  <div id="eap-tls-options" class="eap-method-options">
+                    <div class="checkbox-group">
+                      <label>
+                        <input type="checkbox" id="eap-tls-client-cert" checked> 
+                        Require Client Certificate
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" class="eap-method" id="peap-mschapv2" value="PEAP-MSCHAPv2" checked> 
+                    PEAP-MSCHAPv2
+                  </label>
+                  <div id="peap-mschapv2-options" class="eap-method-options">
+                    <div class="checkbox-group">
+                      <label>
+                        <input type="checkbox" id="peap-mschapv2-validate-server" checked> 
+                        Validate Server Certificate
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" class="eap-method" id="eap-ttls" value="EAP-TTLS"> 
+                    EAP-TTLS
+                  </label>
+                  <div id="eap-ttls-options" class="eap-method-options" style="display: none;">
+                    <div class="checkbox-group">
+                      <label>
+                        <input type="checkbox" id="eap-ttls-anonymous" checked> 
+                        Use Anonymous Outer Identity
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" onclick="generateNetworkDiagram()" class="btn">Generate Network Diagram</button>
+            </div>
+          </div>
+          <div id="scoping-results" class="environment-section" style="display: none;"></div>
+        </div>
+        <!-- Portnox Cloud Discovery Section -->
+        <div class="discovery-section" id="disc-portnox" style="display: none;">
+          <div class="portnox-header">
+            <img src="assets/portnox/portnox-logo.svg" alt="Portnox Logo" class="portnox-logo">
+            <div>
+              <h3>Portnox Cloud Discovery</h3>
+              <p>Integrate with Portnox Cloud for unified access control, reporting, and automated deployment</p>
+            </div>
+          </div>
+          <div class="portnox-section">
+            <h4>Portnox Cloud API Integration</h4>
+            <p>Connect to your Portnox Cloud instance to enable advanced network access control features and automation.</p>
+            <div class="form-group">
+              <label for="portnox-tenant">Tenant ID:</label>
+              <input type="text" id="portnox-tenant" placeholder="Enter your Portnox tenant ID">
+            </div>
+            <div class="form-group">
+              <label for="portnox-api-key">API Key:</label>
+              <div class="api-key-container">
+                <input type="password" id="portnox-api-key" placeholder="Enter your Portnox API key">
+                <button type="button" id="portnox-connect-button" class="portnox-btn">Connect</button>
+              </div>
+            </div>
+          </div>
+          <div class="portnox-tabs">
+            <button class="portnox-nav-tab active" data-tab="radius">RADIUS Server</button>
+            <button class="portnox-nav-tab" data-tab="mab">MAB Management</button>
+            <button class="portnox-nav-tab" data-tab="groups">Device Groups</button>
+            <button class="portnox-nav-tab" data-tab="reports">Reports</button>
+            <button class="portnox-nav-tab" data-tab="poc">POC Generator</button>
+          </div>
+          <!-- RADIUS Server Tab -->
+          <div class="portnox-content" id="portnox-radius" style="display: block;">
+            <div class="portnox-feature">
+              <div class="card">
+                <div class="card-header">Create Cloud RADIUS Server</div>
+                <div class="card-body">
+                  <p>Quickly create a cloud-native RADIUS server for your 802.1X authentication needs.</p>
+                  <div class="form-group">
+                    <label for="portnox-region-select">Select Region:</label>
+                    <select id="portnox-region-select">
+                      <option value="us">United States (North America)</option>
+                      <option value="eu">Europe (Netherlands)</option>
+                      <option value="ap">Asia Pacific (Singapore)</option>
+                      <option value="au">Australia</option>
+                    </select>
+                  </div>
+                  <button type="button" id="portnox-create-radius-button" class="portnox-btn">Create RADIUS Server</button>
+                </div>
+              </div>
+              <div class="card" id="portnox-radius-details" style="display: none;">
+                <div class="card-header">RADIUS Server Details</div>
+                <div class="card-body">
+                  <table>
+                    <tr>
+                      <td><strong>IP Address:</strong></td>
+                      <td id="radius-ip">192.168.1.1</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Authentication Port:</strong></td>
+                      <td id="radius-auth-port">1812</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Accounting Port:</strong></td>
+                      <td id="radius-acct-port">1813</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Shared Secret:</strong></td>
+                      <td id="radius-secret">****************</td>
+                    </tr>
+                  </table>
+                  <button type="button" class="portnox-btn" style="margin-top: 15px;">Show Secret</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- MAB Management Tab -->
+          <div class="portnox-content" id="portnox-mab" style="display: none;">
+            <div class="portnox-feature">
+              <div class="card">
+                <div class="card-header">Create MAB Account</div>
+                <div class="card-body">
+                  <p>Add MAC Authentication Bypass accounts for devices that don't support 802.1X.</p>
+                  <div class="form-group">
+                    <label for="portnox-mac-address">MAC Address:</label>
+                    <input type="text" id="portnox-mac-address" placeholder="00:11:22:33:44:55">
+                  </div>
+                  <div class="form-group">
+                    <label for="portnox-device-name">Device Name:</label>
+                    <input type="text" id="portnox-device-name" placeholder="Printer-Floor1">
+                  </div>
+                  <div class="form-group">
+                    <label for="portnox-device-type">Device Type:</label>
+                    <select id="portnox-device-type">
+                      <option value="printer">Printer</option>
+                      <option value="voip-phone">VoIP Phone</option>
+                      <option value="camera">Security Camera</option>
+                      <option value="medical">Medical Device</option>
+                      <option value="iot">IoT Device</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <button type="button" id="portnox-create-mab-button" class="portnox-btn">Create MAB Account</button>
+                </div>
+              </div>
+              <div class="card" style="margin-top: 20px;">
+                <div class="card-header">MAB Accounts</div>
+                <div class="card-body">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>MAC Address</th>
+                        <th>Device Name</th>
+                        <th>Created</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="portnox-mab-accounts-body">
+                      <!-- Will be populated dynamically -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- POC Generator Tab -->
+          <div class="portnox-content" id="portnox-poc" style="display: none;">
+            <div class="portnox-feature">
+              <div class="card">
+                <div class="card-header">Create POC Report & Deployment Templates</div>
+                <div class="card-body">
+                  <p>Generate a comprehensive proof of concept report and deployment templates based on your environment.</p>
+                  <div class="form-group">
+                    <label for="portnox-client-name">Client/Organization Name:</label>
+                    <input type="text" id="portnox-client-name" placeholder="Enter organization name">
+                  </div>
+                  <div class="form-group">
+                    <label for="portnox-environment">Environment Description:</label>
+                    <textarea id="portnox-environment" rows="4" placeholder="Brief description of your environment, goals, and requirements"></textarea>
+                  </div>
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="portnox-use-env-discovery" checked> 
+                      Use data from Environment Discovery
+                    </label>
+                  </div>
+                  <div class="checkbox-group">
+                    <label>
+                      <input type="checkbox" id="portnox-include-config" checked> 
+                      Include configuration templates
+                    </label>
+                  </div>
+                  <div class="button-group">
+                    <button type="button" id="portnox-generate-poc-button" class="portnox-btn">Generate POC Report</button>
+                    <button type="button" id="portnox-download-poc-button" class="portnox-btn" style="display: none;">Download POC Report</button>
+                  </div>
+                  <div class="form-group" style="margin-top: 20px;">
+                    <button type="button" id="portnox-generate-templates-button" class="portnox-btn">Generate Deployment Templates</button>
+                  </div>
+                  <div id="portnox-templates-container" style="display: none; margin-top: 20px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Import Configuration Tab -->
+        <div class="discovery-section" id="disc-import" style="display: none;">
+          <h3>Import Configuration</h3>
+          <div class="form-group">
+            <label for="config-file">Upload Configuration File:</label>
+            <input type="file" id="config-file" accept=".txt,.conf">
+            <button type="button" onclick="importConfiguration()">Import</button>
+          </div>
+        </div>
+        <!-- Analysis Tab -->
+        <div class="discovery-section" id="disc-analyze" style="display: none;">
+          <h3>Analysis</h3>
+          <p>Analysis results will be displayed here after scanning or importing configurations.</p>
+        </div>
+        <!-- Report Tab -->
+        <div class="discovery-section" id="disc-report" style="display: none;">
+          <h3>POC Report</h3>
+          <p><strong>Use Case:</strong> Validate 802.1X for distributed enterprise.</p>
+          <p><strong>Best Practice:</strong> Use monitoring mode for safe onboarding.</p>
+          <p><strong>Timeline:</strong> 2-4 weeks for initial POC.</p>
+          <button type="button" onclick="generatePDF()">Generate PDF</button>
+          <button type="button" onclick="generateCSV()">Generate CSV</button>
+          <button type="button" onclick="printReport()">Print</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Help Tab -->
+    <div class="tab-content" id="help" style="display:none">
+      <h2>Help</h2>
+      <p>Documentation and support resources for Dot1Xer Supreme.</p>
+      <p>For more information, visit:</p>
+      <ul>
+        <li><a href="https://docs.portnox.com" target="_blank">Portnox Documentation</a></li>
+        <li><a href="https://www.portnox.com" target="_blank">Portnox Official Website</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/accordion.css">
+    <link rel="stylesheet" href="css/help_tips.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="js/accordion.js"></script>
+    <script src="js/template_loader.js"></script>
+    <script src="js/platform_menu.js"></script>
+    <script src="js/help/help_tips.js"></script>
+    <script src="js/api/ai_integration.js"></script>
+    <script src="js/api/portnox_api.js"></script>
+    <script src="js/api/api_config_ui.js"></script>
+    <div class="container">
+        <header>
+            <div class="container">
+                <div class="logo">Dot1Xer Supreme</div>
+                <nav>
+                    <ul>
+                        <li><a href="#platforms">Platforms</a></li>
+                        <li><a href="#api-config">API Settings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="platform-menu" class="tab-container"></div>
+        <div id="api-config-container" class="tab-container"></div>
+        <footer>© 2025 Dot1Xer Supreme Team</footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initAccordions();
+            initHelpTips();
+            initPlatformMenu();
+            createApiConfigUI();
+        });
+    </script>
+</body></html>

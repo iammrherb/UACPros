@@ -1,0 +1,57 @@
+/* Main Styles for Dot1Xer Supreme */
+:root {
+    --primary-color: #6300c4;
+    --primary-dark: #4a0091;
+    --primary-light: #9951ff;
+    --secondary-color: #00b894;
+    --tertiary-color: #e84393;
+    --light-gray: #f8f9fa;
+    --medium-gray: #dee2e6;
+    --dark-gray: #495057;
+    --danger-color: #e74c3c;
+    --warning-color: #f39c12;
+    --success-color: #2ecc71;
+    --border-radius: 6px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --text-color: #212529;
+    --bg-color: #ffffff;
+    --portnox-purple: #6c27be;
+    --portnox-dark: #4c1d80;
+    --portnox-light: #a776e0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header {
+    background: linear-gradient(to right, #4a148c, #6a1b9a, #8e24aa);
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}

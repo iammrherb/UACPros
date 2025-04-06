@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot1Xer Supreme - Enterprise 802.1X Configuration Tool</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/accordion.css">
+    <link rel="stylesheet" href="css/help_tips.css">
+    
+    <!-- JavaScript -->
+    <script src="js/core.js" defer></script>
+    <script src="js/tabs.js" defer></script>
+    <script src="js/accordion.js" defer></script>
+    <script src="js/vendors.js" defer></script>
+    <script src="js/environment.js" defer></script>
+    <script src="js/portnox.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/project-details.js" defer></script>
+    <script src="js/template_loader.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Dot1Xer Supreme</div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="help-link">Help</a></li>
+                    <li><a href="#" id="about-link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Alert messages -->
+        <div id="error-message" class="alert alert-danger"></div>
+        <div id="success-message" class="alert alert-success"></div>
+        
+        <!-- Main tabs -->
+        <div class="tab-container">
+            <ul class="tabs">
+                <li class="tab-btn active" data-tab="configurator">Configurator</li>
+                <li class="tab-btn" data-tab="discovery">Network Discovery</li>
+                <li class="tab-btn" data-tab="reference">Reference Architectures</li>
+                <li class="tab-btn" data-tab="portnox">Portnox Cloud</li>
+                <li class="tab-btn" data-tab="settings">Settings</li>
+            </ul>
+            
+            <!-- Configurator Subtabs -->
+            <div id="configurator-subtabs">
+                <ul class="configurator-subtabs">
+                    <li class="configurator-subtab active" data-subtab="wired">Wired</li>
+                    <li class="configurator-subtab" data-subtab="wireless">Wireless</li>
+                </ul>
+            </div>
+            
+            <!-- Tab content -->
+            <div id="configurator" class="tab-content active">
+                <!-- Wired subtab content -->
+                <div id="subtab-wired" class="configurator-subtab-content active">
+                    <!-- Wired content here -->
+                    <div class="section-header">
+                        <h2>Wired 802.1X Configuration</h2>
+                    </div>
+
+                    <!-- Configuration wizard steps -->
+                    <div class="step-indicator">
+                        <div class="step active" data-step="1">Vendor</div>
+                        <div class="step" data-step="2">Authentication</div>
+                        <div class="step" data-step="3">RADIUS</div>
+                        <div class="step" data-step="4">VLANs</div>
+                        <div class="step" data-step="5">Options</div>
+                        <div class="step" data-step="6">Generate</div>
+                    </div>
+
+                    <!-- Step 1: Vendor Selection -->
+                    <div id="step-1" class="step-content">
+                        <div class="accordion-container">
+                            <div class="accordion-header">
+                                <span>Vendor &amp; Platform Selection</span>
+                                <span class="accordion-icon">-</span>
+                            </div>
+                            <div class="accordion-content active">
+                                <div class="accordion-inner">
+                                    <div class="form-group">
+                                        <label for="vendor-select">Select Vendor:</label>
+                                        <select id="vendor-select">
+                                            <option value="cisco">Cisco</option>
+                                            <option value="aruba">Aruba (HPE)</option>
+                                            <option value="juniper">Juniper</option>
+                                            <option value="fortinet">Fortinet</option>
+                                            <option value="extreme">Extreme Networks</option>
+                                            <!-- Additional vendors -->
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="platform-select">Select Platform:</label>
+                                        <select id="platform-select">
+                                            <!-- Populated by JavaScript -->
+                                        </select>
+                                    </div>
+                                    <div id="platform-description" class="form-description"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Details Section -->
+                        <div class="accordion-container">
+                            <div class="accordion-header">
+                                <span>Project Details</span>
+                                <span class="accordion-icon">+</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <div class="checkbox-group">
+                                        <label>
+                                            <input type="checkbox" id="project-detail-toggle"> 
+                                            Include project details in configuration
+                                        </label>
+                                    </div>
+                                    <div id="project-details-section" style="display: none;">
+                                        <!-- Project details form -->
+                                        <div class="form-group">
+                                            <label for="company-name">Company Name:</label>
+                                            <input type="text" id="company-name" placeholder="e.g., Acme Corp">
+                                        </div>
+                                        <!-- More project detail fields -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Multi-vendor Support -->
+                        <div class="accordion-container">
+                            <div class="accordion-header">
+                                <span>Multi-Vendor Configuration</span>
+                                <span class="accordion-icon">+</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <div class="checkbox-group">
+                                        <label>
+                                            <input type="checkbox" id="multi-vendor-toggle"> 
+                                            Enable multi-vendor configuration generation
+                                        </label>
+                                    </div>
+                                    <div id="multi-vendor-section" style="display: none;">
+                                        <!-- Multi-vendor configuration controls -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nav-buttons">
+                            <button onclick="goToStep(2)" class="btn">Next: Authentication</button>
+                        </div>
+                    </div>
+
+                    <!-- Additional steps would go here -->
+                </div>
+                
+                <!-- Wireless subtab content -->
+                <div id="subtab-wireless" class="configurator-subtab-content">
+                    <!-- Wireless content here -->
+                    <div class="section-header">
+                        <h2>Wireless 802.1X Configuration</h2>
+                    </div>
+
+                    <!-- Wireless device type selection -->
+                    <div class="accordion-container">
+                        <div class="accordion-header">
+                            <span>Wireless Device Selection</span>
+                            <span class="accordion-icon">-</span>
+                        </div>
+                        <div class="accordion-content active">
+                            <div class="accordion-inner">
+                                <p>Select the wireless platform to configure:</p>
+                                <div class="device-type-grid">
+                                    <div class="device-card">
+                                        <div class="device-card-header">Cisco WLC</div>
+                                        <div class="device-card-body">
+                                            <p>Configure Cisco Wireless LAN Controllers for 802.1X authentication.</p>
+                                        </div>
+                                        <div class="device-card-footer">
+                                            <button class="btn">Select</button>
+                                        </div>
+                                    </div>
+                                    <div class="device-card">
+                                        <div class="device-card-header">Aruba Controllers</div>
+                                        <div class="device-card-body">
+                                            <p>Configure Aruba Wireless Controllers for 802.1X authentication.</p>
+                                        </div>
+                                        <div class="device-card-footer">
+                                            <button class="btn">Select</button>
+                                        </div>
+                                    </div>
+                                    <!-- More wireless device cards -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wireless configuration form would go here -->
+                </div>
+            </div>
+            
+            <div id="discovery" class="tab-content">
+                <!-- Network Discovery content -->
+            </div>
+            
+            <div id="reference" class="tab-content">
+                <!-- Reference Architectures content -->
+            </div>
+            
+            <div id="portnox" class="tab-content">
+                <!-- Portnox Cloud content -->
+            </div>
+            
+            <div id="settings" class="tab-content">
+                <!-- Settings content -->
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023-2025 Dot1Xer Supreme Team. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
